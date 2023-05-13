@@ -6,7 +6,7 @@ import java.awt.GridLayout;
 import java.awt.Panel;
 import java.awt.event.*;
 
-public class Calculator extends JFrame {
+public class Calculator extends JFrame implements ActionListener {
     JPanel inpPan, btnPan;
     JTextField tf1;
     JLabel l1;
@@ -23,56 +23,74 @@ public class Calculator extends JFrame {
 
         // Button Panel
         btnPan = new JPanel(new GridLayout(5, 5));
+
         b7 = new JButton("7");
+        b7.addActionListener(this);
         btnPan.add(b7);
 
         b8 = new JButton("8");
+        b8.addActionListener(this);
         btnPan.add(b8);
 
         b9 = new JButton("9");
+        b9.addActionListener(this);
         btnPan.add(b9);
 
         b10 = new JButton("+");
+        b10.addActionListener(this);
         btnPan.add(b10);
 
         b4 = new JButton("4");
+        b4.addActionListener(this);
         btnPan.add(b4);
 
         b5 = new JButton("5");
+        b5.addActionListener(this);
         btnPan.add(b5);
 
         b6 = new JButton("6");
+        b6.addActionListener(this);
         btnPan.add(b6);
 
         b11 = new JButton("-");
+        b11.addActionListener(this);
         btnPan.add(b11);
 
         b1 = new JButton("1");
+        b1.addActionListener(this);
         btnPan.add(b1);
 
         b2 = new JButton("2");
+        b2.addActionListener(this);
         btnPan.add(b2);
 
         b3 = new JButton("3");
+        b3.addActionListener(this);
         btnPan.add(b3);
 
         b12 = new JButton("*");
+        b12.addActionListener(this);
         btnPan.add(b12);
 
         b13 = new JButton("/");
+        b13.addActionListener(this);
         btnPan.add(b13);
 
         b14 = new JButton(".");
+        b14.addActionListener(this);
         btnPan.add(b14);
 
         b0 = new JButton("0");
+        b0.addActionListener(this);
         btnPan.add(b0);
 
         b15 = new JButton("C");
+        b15.addActionListener(this);
         btnPan.add(b15);
 
         b16 = new JButton("=");
         b16.setPreferredSize(new Dimension(50, 30));
+        b16.addActionListener(this);
         btnPan.add(b16);
 
         add(btnPan);
@@ -84,6 +102,13 @@ public class Calculator extends JFrame {
         setLayout(new FlowLayout());
         setLocation(100, 100);
         setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String op = ((JButton) e.getSource()).getText();
+
+        System.out.println("clicked" + op);
+
     }
 
     public static void main(String[] args) {
